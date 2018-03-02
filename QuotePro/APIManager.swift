@@ -61,7 +61,7 @@
             let client_id = URLQueryItem(name: "client_id", value: "ceb65ddb91507e504e745c112b04ae717c7dab9b7037a37b8e270e748cc73dee")
             let w = URLQueryItem(name: "w", value: "500")
             let h = URLQueryItem(name: "h", value: "800")
-            let query = URLQueryItem(name: "query", value: "landscape")
+            let query = URLQueryItem(name: "query", value: "dark")
 
             componenets.queryItems = [client_id, w, h, query]
             componentsURL = componenets.url

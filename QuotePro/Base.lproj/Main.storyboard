@@ -19,15 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="133" id="7JF-7b-dMX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="133" id="7JF-7b-dMX" customClass="TableViewCell" customModule="QuotePro" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7JF-7b-dMX" id="Ufg-Jw-7eG">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7JF-7b-dMX" id="Ufg-Jw-7eG" customClass="TableViewCell" customModule="QuotePro" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="132.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="yRd-DP-Otw" kind="show" identifier="row" id="Hh6-fD-sW8"/>
+                                    <segue destination="yRd-DP-Otw" kind="presentation" identifier="row" id="Hh6-fD-sW8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SO7-G2-NfE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231" y="258"/>
+            <point key="canvasLocation" x="1229.5999999999999" y="257.72113943028489"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KMG-WP-SW2">

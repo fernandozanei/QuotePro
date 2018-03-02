@@ -14,15 +14,6 @@ class ViewController: UITableViewController, QuoteViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        let api = APIManager()
-        //        api.getRandomQuote { (quote) in
-        //            print("\"\(quote.text)\", \(quote.author)")
-        //        }
-        
-        
-        //        api.getRandomPhoto { (photo) in
-        //            print("KD A photo????????????")
-        //        }
         
     }
     
@@ -33,10 +24,11 @@ class ViewController: UITableViewController, QuoteViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = quotes[indexPath.row].text
+        let cell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! TableViewCell
+        cell.quote = quotes[indexPath.row]
         return cell
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -58,11 +50,15 @@ class ViewController: UITableViewController, QuoteViewDelegate {
     
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160.0
+    }
     
     
     func saveQuote(quoteBuilder: QuoteViewController, didCreateQuote quote: Quote) {
         quotes.append(quote)
         tableView.reloadData()
+        tableView.setNeedsDisplay()
     }
     
     

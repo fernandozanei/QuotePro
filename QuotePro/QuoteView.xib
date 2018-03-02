@@ -21,17 +21,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="adq-jk-lJ3">
+                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="adq-jk-lJ3">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9I-IP-JwT">
-                    <rect key="frame" x="50" y="12" width="275" height="174"/>
+                    <rect key="frame" x="50" y="51.5" width="275" height="174"/>
                     <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="30"/>
                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.95470355308219179" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvB-r4-tS6">
-                    <rect key="frame" x="30" y="236" width="315" height="30"/>
+                    <rect key="frame" x="30" y="251.5" width="315" height="30"/>
                     <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="25"/>
                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.9512253852739726" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -39,6 +40,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fvB-r4-tS6" firstAttribute="top" secondItem="U9I-IP-JwT" secondAttribute="bottom" constant="26" id="2Uy-HI-kOj"/>
                 <constraint firstItem="adq-jk-lJ3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Ie-4I-NrV"/>
                 <constraint firstAttribute="bottom" secondItem="adq-jk-lJ3" secondAttribute="bottom" id="SHV-Qx-7Gu"/>
                 <constraint firstItem="adq-jk-lJ3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cuy-gI-ZXH"/>
@@ -46,14 +48,14 @@
                 <constraint firstAttribute="trailing" secondItem="fvB-r4-tS6" secondAttribute="trailing" constant="30" id="h2a-wg-oQk"/>
                 <constraint firstItem="U9I-IP-JwT" firstAttribute="leading" secondItem="adq-jk-lJ3" secondAttribute="leading" constant="50" id="mve-uU-JbL"/>
                 <constraint firstAttribute="trailing" secondItem="adq-jk-lJ3" secondAttribute="trailing" id="nlX-j2-XjZ"/>
-                <constraint firstItem="U9I-IP-JwT" firstAttribute="centerY" secondItem="adq-jk-lJ3" secondAttribute="centerY" constant="-40" id="tZW-dg-vb5"/>
-                <constraint firstItem="fvB-r4-tS6" firstAttribute="top" secondItem="U9I-IP-JwT" secondAttribute="bottom" constant="50" id="tlr-Vj-k7f"/>
+                <constraint firstItem="U9I-IP-JwT" firstAttribute="centerY" secondItem="adq-jk-lJ3" secondAttribute="centerY" id="tZW-dg-vb5"/>
                 <constraint firstItem="adq-jk-lJ3" firstAttribute="trailing" secondItem="U9I-IP-JwT" secondAttribute="trailing" constant="50" id="wEN-k5-KGm"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="author" destination="fvB-r4-tS6" id="kAZ-6x-orc"/>
+                <outlet property="centerConstraint" destination="tZW-dg-vb5" id="mA1-sO-OTE"/>
                 <outlet property="image" destination="adq-jk-lJ3" id="UlM-Kj-S4Z"/>
                 <outlet property="text" destination="U9I-IP-JwT" id="SqH-1L-Wx9"/>
             </connections>
