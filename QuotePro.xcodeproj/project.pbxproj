@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0713EC812073C31D00D3E994 /* Quotes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0713EC7F2073C31D00D3E994 /* Quotes.xcdatamodeld */; };
+		0713ECA42073E59D00D3E994 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713ECA32073E59D00D3E994 /* DataManager.swift */; };
 		072653FA204899A5000A7B88 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072653F9204899A5000A7B88 /* TableViewCell.swift */; };
 		074B98112047591800221B3C /* QuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 074B98102047591800221B3C /* QuoteView.xib */; };
 		074B98132047655C00221B3C /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B98122047655C00221B3C /* QuoteView.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0713EC802073C31D00D3E994 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0713ECA32073E59D00D3E994 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		072653F9204899A5000A7B88 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		074B98102047591800221B3C /* QuoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteView.xib; sourceTree = "<group>"; };
 		074B98122047655C00221B3C /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				07AC0C95204701FD00F84DD5 /* AppDelegate.swift */,
 				0713EC7F2073C31D00D3E994 /* Quotes.xcdatamodeld */,
 				07AC0C97204701FD00F84DD5 /* TableViewController.swift */,
+				0713ECA32073E59D00D3E994 /* DataManager.swift */,
 				072653F9204899A5000A7B88 /* TableViewCell.swift */,
 				07AC0CAD204709EF00F84DD5 /* QuoteViewController.swift */,
 				074B98122047655C00221B3C /* QuoteView.swift */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07AC0CAE204709EF00F84DD5 /* QuoteViewController.swift in Sources */,
+				0713ECA42073E59D00D3E994 /* DataManager.swift in Sources */,
 				072653FA204899A5000A7B88 /* TableViewCell.swift in Sources */,
 				07AC0CAA2047042900F84DD5 /* Photo.swift in Sources */,
 				07AC0C98204701FD00F84DD5 /* TableViewController.swift in Sources */,

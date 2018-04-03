@@ -16,29 +16,9 @@ class ViewController: UITableViewController, QuoteViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Quotes")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                let text = data.value(forKey: "text") as! String
-                let author = data.value(forKey: "author") as! String
-                let photo = Photo(photo: UIImage(data: data.value(forKey: "photo") as! Data)!)
-
-                let quote = Quote(text, author)
-                quote.photo = photo
-                
-                quotes.append(quote)
-            }
-            
-        } catch {
-            
-            print("Failed")
+        if let quoteData = DataManager.loadQuoteData() {
+            quotes = quoteData
         }
-        
     }
     
     // MARK - Table View
@@ -53,7 +33,18 @@ class ViewController: UITableViewController, QuoteViewDelegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            DataManager.deleteQuoteData(quotes[indexPath.row])
+            quotes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "add" {
@@ -84,24 +75,7 @@ class ViewController: UITableViewController, QuoteViewDelegate {
         tableView.reloadData()
         tableView.setNeedsDisplay()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "Quotes", in: context)
-        let newQuote = NSManagedObject(entity: entity!, insertInto: context)
-        
-        
-        let photoData = UIImagePNGRepresentation(quote.photo!.photo)
-        
-        newQuote.setValue(photoData, forKey: "photo")
-        newQuote.setValue(quote.text, forKey: "text")
-        newQuote.setValue(quote.author, forKey: "author")
-        
-        do {
-            try context.save()
-        } catch {
-            print("Failed saving")
-        }
+        DataManager.saveQuoteData(quote)
     }
     
     
