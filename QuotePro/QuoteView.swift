@@ -22,7 +22,6 @@ class QuoteView: UIView {
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        //       Bundle.main.loadNibNamed("QuoteView", owner: self, options: nil)
     }
     
     required init?(coder aDecoder: NSCoder)

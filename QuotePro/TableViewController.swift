@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UITableViewController, QuoteViewDelegate {
     
@@ -14,6 +15,29 @@ class ViewController: UITableViewController, QuoteViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Quotes")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let text = data.value(forKey: "text") as! String
+                let author = data.value(forKey: "author") as! String
+                let photo = Photo(photo: UIImage(data: data.value(forKey: "photo") as! Data)!)
+
+                let quote = Quote(text, author)
+                quote.photo = photo
+                
+                quotes.append(quote)
+            }
+            
+        } catch {
+            
+            print("Failed")
+        }
         
     }
     
@@ -38,7 +62,7 @@ class ViewController: UITableViewController, QuoteViewDelegate {
                 destinationVC.delegate = self
             }
         }
-
+        
         if segue.identifier == "row" {
             if let destinationVC = segue.destination as? QuoteViewController
             {
@@ -46,10 +70,10 @@ class ViewController: UITableViewController, QuoteViewDelegate {
                 destinationVC.quote = quotes[indexPath.row]
             }
         }
-
-    
+        
+        
     }
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160.0
     }
@@ -59,6 +83,25 @@ class ViewController: UITableViewController, QuoteViewDelegate {
         quotes.append(quote)
         tableView.reloadData()
         tableView.setNeedsDisplay()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Quotes", in: context)
+        let newQuote = NSManagedObject(entity: entity!, insertInto: context)
+        
+        
+        let photoData = UIImagePNGRepresentation(quote.photo!.photo)
+        
+        newQuote.setValue(photoData, forKey: "photo")
+        newQuote.setValue(quote.text, forKey: "text")
+        newQuote.setValue(quote.author, forKey: "author")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
     }
     
     
