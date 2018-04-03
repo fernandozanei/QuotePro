@@ -26,3 +26,9 @@ You can save your selected quote. They will be saved by Core Data, so you won't 
 You can share with others apps and/or save to your Photo library.
 
 ![QuotePro](Documentation/QuotePro_2.gif)
+
+### Delete Quotes
+You can delete your saved quotes by swiping the row to the left.
+
+![QuotePro](Documentation/QuotePro_3.gif)
+
